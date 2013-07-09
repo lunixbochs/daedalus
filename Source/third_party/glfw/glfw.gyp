@@ -19,6 +19,7 @@
         ],
       },
       'defines': [
+        '_GLFW_HAS_DLOPEN=1',
         '_GLFW_USE_OPENGL=1',
         '_GLFW_VERSION_FULL="3.0.1"',
         '_GLFW_USE_MENUBAR=1',
@@ -64,6 +65,8 @@
               '-lX11',
               '-lGL',
               '-lrt',
+              '-lXrandr',
+              '-lXi',
             ],
           },
           'defines': [

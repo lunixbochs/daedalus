@@ -41,8 +41,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 		#define BSWAP32(x) __builtin_bswap32(x)
 
-		//__builtin_bswap16 is not defined on the PSP toolchain..
-		#ifdef DAEDALUS_PSP
+		//__builtin_bswap16 is not defined on the PSP toolchain.. (or ARM?)
+		#ifdef __arm__
+			static inline unsigned short __builtin_bswap16(unsigned short a) {
+				return (a<<8)|(a>>8);
+			}
+		#endif
+
+		#if defined(DAEDALUS_PSP)
 			#define BSWAP16(x) __builtin_allegrex_wsbh(x)
 		#else
 			#define BSWAP16(x) __builtin_bswap16(x)

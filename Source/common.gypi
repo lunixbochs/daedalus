@@ -4,7 +4,7 @@
       'Config/Release/',
     ],
     'cflags': [
-      '-std=c++11', '-Wno-c++11-compat',
+      '-std=c++0x', '-Wno-c++0x-compat',
     ],
   },
   'conditions': [
